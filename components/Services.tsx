@@ -1,30 +1,40 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Smartphone, Globe, Database } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Code, Smartphone, Globe, Database } from "lucide-react";
 
 const services = [
   {
-    title: 'Web Development',
-    description: 'Creating responsive and dynamic websites using modern frameworks and technologies.',
-    icon: Globe
+    title: "Web Development",
+    description:
+      "Creating responsive and dynamic websites using modern frameworks and technologies.",
+    icon: Globe,
   },
   {
-    title: 'Mobile App Development',
-    description: 'Building cross-platform mobile applications for iOS and Android.',
-    icon: Smartphone
+    title: "Mobile App Development",
+    description:
+      "Building cross-platform mobile applications for iOS and Android.",
+    icon: Smartphone,
   },
   {
-    title: 'Backend Development',
-    description: 'Designing and implementing robust server-side applications and APIs.',
-    icon: Database
+    title: "Backend Development",
+    description:
+      "Designing and implementing robust server-side applications and APIs.",
+    icon: Database,
   },
   {
-    title: 'Custom Software Solutions',
-    description: 'Developing tailored software to meet specific business needs and challenges.',
-    icon: Code
-  }
+    title: "Custom Software Solutions",
+    description:
+      "Developing tailored software to meet specific business needs and challenges.",
+    icon: Code,
+  },
 ];
 
 export default function Services() {
@@ -55,7 +65,9 @@ export default function Services() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300">{service.description}</CardDescription>
+                  <CardDescription className="text-gray-300">
+                    {service.description}
+                  </CardDescription>
                 </CardContent>
               </Card>
             </motion.div>
