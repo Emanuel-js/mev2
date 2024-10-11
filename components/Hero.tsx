@@ -82,11 +82,7 @@ export default function Hero() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <Button asChild size="lg" variant="outline">
-            <a href="#contact">Get in touch</a>
-          </Button>
-        </motion.div>
+        ></motion.div>
       </div>
     </section>
   );
