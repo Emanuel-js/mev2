@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface NavigationProps {
   currentSection: number;
@@ -10,9 +10,14 @@ interface NavigationProps {
   onPrev: () => void;
 }
 
-export default function Navigation({ currentSection, totalSections, onNext, onPrev }: NavigationProps) {
+export default function Navigation({
+  currentSection,
+  totalSections,
+  onNext,
+  onPrev,
+}: NavigationProps) {
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+    <div className="z-50 fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -34,7 +39,7 @@ export default function Navigation({ currentSection, totalSections, onNext, onPr
           <motion.div
             key={index}
             className={`w-2 h-2 rounded-full ${
-              index === currentSection ? 'bg-white' : 'bg-white/50'
+              index === currentSection ? "bg-white" : "bg-white/50"
             }`}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

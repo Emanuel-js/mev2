@@ -1,33 +1,51 @@
 "use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce solution with React, Node.js, and MongoDB.',
-    image: 'https://source.unsplash.com/random/800x600?ecommerce',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    link: '#'
+    title: "Payment getaway and checkout",
+    description:
+      "A React and Nextjs checkout and dashboard for payment gateway",
+    image: "/assets/arifpay.png",
+    tags: ["React", "Nextjs", "Storybook", "Jest", "Cypress", "TypeScript"],
+    link: "https://arifpay.net/",
   },
   {
-    title: 'Task Management App',
-    description: 'A productivity app built with Vue.js and Firebase.',
-    image: 'https://source.unsplash.com/random/800x600?productivity',
-    tags: ['Vue.js', 'Firebase'],
-    link: '#'
+    title: "Ats",
+    description:
+      "A Application tracking system built with Vue.js,Nextjs, and Python",
+    image: "/assets/moyats.png",
+    tags: [
+      "Vue.js",
+      "Python",
+      "Nextjs",
+      "React",
+      "Graphql",
+      "Apollo",
+      "TypeScript",
+    ],
+    link: "https://moyats.com/",
   },
   {
-    title: 'Weather Forecast Dashboard',
-    description: 'Real-time weather data visualization using D3.js and OpenWeatherMap API.',
-    image: 'https://source.unsplash.com/random/800x600?weather',
-    tags: ['D3.js', 'API Integration'],
-    link: '#'
-  }
+    title: "health Tracking system",
+    description: "A woman health tracking application",
+    image: "/assets/ourself.png",
+    tags: ["Flutter", "Graphql", "Apollo", "Dart"],
+    link: "https://apps.apple.com/us/app/ourself-womens-health-tracker/id1659210785?itsct=apps_box_link&itscg=30200",
+  },
 ];
 
 export default function Projects() {
@@ -58,18 +76,37 @@ export default function Projects() {
               <Card className="bg-white/10 backdrop-blur-sm text-white border-none">
                 <CardHeader>
                   <CardTitle>{projects[currentProject].title}</CardTitle>
-                  <CardDescription className="text-gray-300">{projects[currentProject].description}</CardDescription>
+                  <CardDescription className="text-gray-300">
+                    {projects[currentProject].description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <img src={projects[currentProject].image} alt={projects[currentProject].title} className="w-full h-64 object-cover rounded-md mb-4" />
+                  <Image
+                    src={projects[currentProject].image}
+                    alt={projects[currentProject].title}
+                    width={100}
+                    height={100}
+                    className="w-full h-64 object-cover rounded-md mb-4"
+                  />
                   <div className="flex flex-wrap gap-2">
                     {projects[currentProject].tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" className="bg-white/20 text-white">{tag}</Badge>
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="bg-white/20 text-white"
+                      >
+                        {tag}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <a href={projects[currentProject].link} className="text-blue-300 hover:underline">View Project</a>
+                  <a
+                    href={projects[currentProject].link}
+                    className="text-blue-300 hover:underline"
+                  >
+                    View Project
+                  </a>
                 </CardFooter>
               </Card>
             </motion.div>

@@ -1,20 +1,29 @@
 "use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Invalid email address.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Invalid email address." }),
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters." }),
 });
 
 export default function Contact() {
@@ -24,9 +33,9 @@ export default function Contact() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     },
   });
 
@@ -34,10 +43,9 @@ export default function Contact() {
     setIsSubmitting(true);
     // Simulate form submission
     setTimeout(() => {
-      console.log(values);
       toast({
-        title: 'Message Sent',
-        description: 'Thank you for your message. I will get back to you soon!',
+        title: "Message Sent",
+        description: "Thank you for your message. I will get back to you soon!",
       });
       form.reset();
       setIsSubmitting(false);
@@ -61,11 +69,15 @@ export default function Contact() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel className="text-yellow-100">Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your name" {...field} className="bg-white/5 border-white/10 text-white" />
+                      <Input
+                        placeholder="Your name"
+                        {...field}
+                        className="bg-white/5 border-white/10 text-white"
+                      />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-yellow-100" />
                   </FormItem>
                 )}
               />
@@ -74,11 +86,15 @@ export default function Contact() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-yellow-100">Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your email" {...field} className="bg-white/5 border-white/10 text-white" />
+                      <Input
+                        placeholder="Your email"
+                        {...field}
+                        className="bg-white/5 border-white/10 text-white"
+                      />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-yellow-100" />
                   </FormItem>
                 )}
               />
@@ -87,16 +103,24 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel className="text-yellow-100">Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Your message" {...field} className="bg-white/5 border-white/10 text-white" />
+                      <Textarea
+                        placeholder="Your message"
+                        {...field}
+                        className="bg-white/5 border-white/10 text-white"
+                      />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-yellow-100" />
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isSubmitting} className="w-full bg-white/20 hover:bg-white/30 text-white">
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-white/20 hover:bg-white/30 text-white"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </Form>
